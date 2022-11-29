@@ -2,7 +2,7 @@ package tn.esprit.controller;
 
 import java.util.List;
 
-import javax.websocket.server.PathParam;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -25,7 +25,7 @@ import tn.esprit.service.interfaces.EquipeService;
 public class EquipeController {
 	@Autowired
 	EquipeService equipeServ;
-	//exécuter la méthode toutes les 60 secondes
+	
     @Scheduled(fixedRate = 6000)
 	@GetMapping("/DisplayAll")
 	public List<Equipe> DisplayAll() {
@@ -37,7 +37,7 @@ public class EquipeController {
 
 		return equipeServ.afficherEquipe(id);
 	}
-	@Scheduled(cron ="0/15 * * * * *")
+	
 	@PostMapping("/AddEquipe")
 	public Equipe addEquipe(@RequestBody Equipe e) {
 		return equipeServ.ajouterEquipe(e);

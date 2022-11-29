@@ -23,6 +23,8 @@ import tn.esprit.service.interfaces.etudiantService;
 public class EtudiantController {
 	@Autowired
 	etudiantService etudserv;
+	
+	@Scheduled(fixedDelay  = 60000)
 	@GetMapping("/displayAll")
 	public List<Etudiant> displayAllStudent()
 	{
